@@ -41,32 +41,4 @@ export const data = [
     icon: Wton,
     balance: 12.34513188878,
   },
-  {
-    name: "Dragons of Midgard",
-    symbol: "AURA",
-    color: "#CB1000",
-    icon: Aura,
-    balance: 12.34513188878,
-  },
-  {
-    name: "Dragons of Midgard",
-    symbol: "AURA",
-    color: "#CB1000",
-    icon: Aura,
-    balance: 12.34513188878,
-  },
-  {
-    name: "Dragons of Midgard",
-    symbol: "AURA",
-    color: "#CB1000",
-    icon: Aura,
-    balance: 12.34513188878,
-  },
-  {
-    name: "Dragons of Midgard",
-    symbol: "AURA",
-    color: "#CB1000",
-    icon: Aura,
-    balance: 12.34513188878,
-  },
 ];

@@ -47,6 +47,90 @@ export const CardBox = styled.div<CardBoxProps>`
     opacity: 0.9;
     top: ${({ position }) => HOVER_TOP[position]};
   }
+
+  //When user click right arrow
+  &.carousel-right-enter {
+    opacity: 0;
+    left: ${({ $isFull }) =>
+      $isFull ? LEFT[4] : `calc(${LEFT[0]} - ${CARD_SIZE[2].width})`};
+    top: ${({ $isFull }) => ($isFull ? TOP[0] : "160px")};
+  }
+  &.carousel-right-enter.carousel-right-enter-active {
+    opacity: 0.9;
+    left: ${LEFT[0]};
+    top: ${TOP[0]};
+  }
+  &.carousel-right-exit {
+    opacity: 0.9;
+    left: ${LEFT[4]};
+    top: ${TOP[0]};
+  }
+  &.carousel-right-exit.carousel-right-exit-active {
+    opacity: 0;
+    left: ${({ $isFull }) =>
+      $isFull ? `${LEFT[4]}` : `calc(${LEFT[4]} + ${CARD_SIZE[2].width})`};
+    top: ${({ $isFull }) => ($isFull ? `${TOP[0]}` : "160px")};
+  }
+
+  //When user click left arrow
+  &.carousel-left-enter {
+    opacity: 0;
+    left: ${({ $isFull }) =>
+      $isFull ? `${LEFT[0]}` : `calc(${LEFT[4]} + ${CARD_SIZE[2].width})`};
+    top: ${({ $isFull }) => ($isFull ? `${TOP[0]}` : "160px")};
+  }
+  &.carousel-left-enter.carousel-left-enter-active {
+    opacity: 0.9;
+    left: ${LEFT[4]};
+    top: ${TOP[0]};
+  }
+  &.carousel-left-exit {
+    opacity: 0.9;
+    left: ${LEFT[0]};
+    top: ${TOP[0]};
+  }
+  &.carousel-left-exit.carousel-left-exit-active {
+    opacity: 0;
+    left: ${({ $isFull }) =>
+      $isFull ? `${LEFT[0]}` : `calc(${LEFT[0]} - ${CARD_SIZE[2].width})`};
+    top: ${({ $isFull }) => ($isFull ? `${TOP[0]}` : "160px")};
+  }
+
+  //When user click the card
+  &.carousel-card-enter {
+    opacity: 0;
+    left: ${({ $isFull, $directionByCard }) =>
+      $isFull
+        ? $directionByCard === Direction.left
+          ? `${LEFT[0]}`
+          : `${LEFT[4]}`
+        : $directionByCard === Direction.left
+        ? `calc(${LEFT[4]} + ${CARD_SIZE[2].width})`
+        : `calc(${LEFT[0]} - ${CARD_SIZE[2].width})`};
+    top: ${({ $isFull }) => ($isFull ? `${TOP[0]}` : "160px")};
+  }
+  &.carousel-card-enter.carousel-card-enter-active {
+    opacity: 0.9;
+    left: ${({ $directionByCard }) =>
+      $directionByCard === Direction.left ? `${LEFT[4]}` : `${LEFT[0]}`};
+    top: ${TOP[0]};
+  }
+  &.carousel-card-exit {
+    opacity: 0.9;
+    left: ${({ $directionByCard }) =>
+      $directionByCard === Direction.left ? `${LEFT[0]}` : `${LEFT[4]}`};
+    top: ${TOP[0]};
+  }
+  &.carousel-card-exit.carousel-card-exit-active {
+    opacity: 0;
+    left: ${({ $isFull, $directionByCard }) =>
+      $isFull
+        ? `${LEFT[0]}`
+        : $directionByCard
+        ? `calc(${LEFT[0]} - ${CARD_SIZE[2].width})`
+        : `calc(${LEFT[4]} + ${CARD_SIZE[2].width})`};
+    top: ${({ $isFull }) => ($isFull ? `${TOP[0]}` : "160px")};
+  }
 `;
 
 export const Card = styled.div<MainProps>`
